@@ -7,13 +7,28 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 // Set of Material typography styles to start with
+
 val Typography = Typography(
+    titleLarge = TextStyle(
+        fontSize = 26.sp,
+        fontWeight = FontWeight.Bold,
+        color = LittleLemonColor.charcoal
+    ),
+    titleMedium = TextStyle(
+        color = LittleLemonColor.charcoal,
+        fontSize = 18.sp,
+        fontWeight = FontWeight.Bold
+    ),
     bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
+        color = LittleLemonColor.green
+    ),
+    bodyMedium = TextStyle(
+        fontWeight = FontWeight.Bold,
+        color = LittleLemonColor.green
+    ),
+    labelLarge = TextStyle(
+        fontSize = 14.sp,
+        fontWeight = FontWeight.Bold
     )
     /* Other default text styles to override
     titleLarge = TextStyle(
