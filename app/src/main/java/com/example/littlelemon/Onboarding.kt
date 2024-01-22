@@ -80,7 +80,7 @@ fun Onboarding(navController: NavController){
 
         TextField(
             label = { Text("First Name") },
-            value = "Ismail",
+            value = firstName,
             onValueChange =  { firstName = it },
             modifier= Modifier
                 .fillMaxWidth(1f)
@@ -91,7 +91,7 @@ fun Onboarding(navController: NavController){
 
         TextField(
             label = { Text("Last Name") },
-            value = "Al Amir",
+            value = lastName,
             onValueChange =  { lastName = it },
             modifier= Modifier
                 .fillMaxWidth(1f)
@@ -103,7 +103,7 @@ fun Onboarding(navController: NavController){
 
         TextField(
             label = { Text("Email Address") },
-            value = "name@example.com",
+            value = emailAddress,
             onValueChange =  { emailAddress = it },
             modifier= Modifier
                 .fillMaxWidth(1f)
@@ -113,7 +113,9 @@ fun Onboarding(navController: NavController){
             )
 
         Button(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 25.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 25.dp),
             colors = ButtonDefaults.buttonColors(containerColor = yellow),
             shape= RoundedCornerShape(16.dp),
             onClick = {
@@ -129,14 +131,25 @@ fun Onboarding(navController: NavController){
                     registrationStatus = "Registration successful!"
 
                     // Navigate to Home screen
-                    navController.navigate("home")
+                    navController.navigate("Home")
                 }
             }
         ) {
             Text(text = "Register")
+
             
         }
+        registrationStatus?.let {
+            Text(
+                text = it,
+                modifier = Modifier.padding(top = 16.dp),
+                color = MaterialTheme.colorScheme.primary
+            )
+        }
+
     }
+
+
 
 
 }

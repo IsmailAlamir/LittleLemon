@@ -8,4 +8,5 @@ object LittleLemonColor {
     val pink = Color(0xFFFBDABB)
     val cloud = Color(0xFFEDEFEE)
     val charcoal = Color(0xFF333333)
+    val gray = Color(0xFF858484)
 }
