@@ -1,4 +1,4 @@
-package com.example.littlelemon
+package com.example.littlelemon.composable
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
@@ -25,9 +25,10 @@ import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.littlelemon.R
+import com.example.littlelemon.preferences.PreferencesManager
 import com.example.littlelemon.ui.theme.LittleLemonColor.cloud
 import com.example.littlelemon.ui.theme.LittleLemonColor.green
 import com.example.littlelemon.ui.theme.LittleLemonColor.yellow
@@ -123,9 +124,9 @@ fun Onboarding(navController: NavController){
                     registrationStatus = "Registration unsuccessful. Please enter all data."
                 } else {
                     // Save data to SharedPreferences
-                    PreferenceHelper.putString("firstName", firstName)
-                    PreferenceHelper.putString("lastName", lastName)
-                    PreferenceHelper.putString("emailAddress", emailAddress)
+                    PreferencesManager.putString("firstName", firstName)
+                    PreferencesManager.putString("lastName", lastName)
+                    PreferencesManager.putString("emailAddress", emailAddress)
 
                     // Update registration status
                     registrationStatus = "Registration successful!"

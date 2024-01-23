@@ -1,15 +1,13 @@
-package com.example.littlelemon
+package com.example.littlelemon.composable
 
-import android.content.Context
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
+import com.example.littlelemon.navigation.Home
+import com.example.littlelemon.navigation.OnBoarding
+import com.example.littlelemon.navigation.Profile
+import com.example.littlelemon.preferences.PreferencesManager
 
 @Composable
 fun Navigation(navController : NavHostController){
@@ -45,9 +43,9 @@ fun Navigation(navController : NavHostController){
 
 fun isUserDataStored(): Boolean {
 
-    val firstName = PreferenceHelper.getString("firstName", "")
-    val lastName = PreferenceHelper.getString("lastName", "")
-    val emailAddress = PreferenceHelper.getString("emailAddress", "")
+    val firstName = PreferencesManager.getString("firstName", "")
+    val lastName = PreferencesManager.getString("lastName", "")
+    val emailAddress = PreferencesManager.getString("emailAddress", "")
     return firstName.isNotEmpty() && lastName.isNotEmpty() && emailAddress.isNotEmpty()
 
 }

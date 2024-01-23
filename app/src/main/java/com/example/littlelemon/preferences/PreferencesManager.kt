@@ -1,9 +1,9 @@
-package com.example.littlelemon
+package com.example.littlelemon.preferences
 
 import android.content.Context
 import android.content.SharedPreferences
 
-object PreferenceHelper {
+object PreferencesManager {
     private const val PREFERENCE_NAME = "LittleLemon"
     private lateinit var sharedPreferences: SharedPreferences
 

@@ -1,4 +1,4 @@
-package com.example.littlelemon
+package com.example.littlelemon.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -22,17 +22,6 @@ data class MenuItemRoom(
     val category: String,
 )
 
-@Dao
-interface MenuItemDao {
-    @Query("SELECT * FROM MenuItemRoom")
-    fun getAll(): LiveData<List<MenuItemRoom>>
-
-    @Insert
-    fun insertAll(vararg menuItems: MenuItemRoom)
-
-    @Query("SELECT (SELECT COUNT(*) FROM MenuItemRoom) == 0")
-    fun isEmpty(): Boolean
-}
 
 @Database(entities = [MenuItemRoom::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {

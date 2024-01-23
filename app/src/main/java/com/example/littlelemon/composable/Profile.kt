@@ -1,4 +1,4 @@
-package com.example.littlelemon
+package com.example.littlelemon.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -18,23 +18,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.littlelemon.R
+import com.example.littlelemon.preferences.PreferencesManager
 import com.example.littlelemon.ui.theme.LittleLemonColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Profile(navController: NavController){
 
-    var firstName by remember { mutableStateOf(PreferenceHelper.getString("firstName", "")) }
-    var lastName by remember { mutableStateOf(PreferenceHelper.getString("lastName", "")) }
-    var emailAddress by remember { mutableStateOf(PreferenceHelper.getString("emailAddress", "")) }
+    val firstName by remember { mutableStateOf(PreferencesManager.getString("firstName", "")) }
+    val lastName by remember { mutableStateOf(PreferencesManager.getString("lastName", "")) }
+    val emailAddress by remember { mutableStateOf(PreferencesManager.getString("emailAddress", "")) }
 
 
 
@@ -106,7 +106,7 @@ fun Profile(navController: NavController){
             colors = ButtonDefaults.buttonColors(containerColor = LittleLemonColor.yellow),
             shape= RoundedCornerShape(16.dp),
             onClick = {
-                PreferenceHelper.clear()
+                PreferencesManager.clear()
                 navController.navigate("OnBoarding")
 
             },
