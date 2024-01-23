@@ -10,9 +10,6 @@ import com.example.littlelemon.preferences.PreferencesManager
 import com.example.littlelemon.ui.theme.LittleLemonTheme
 
 class MainActivity : ComponentActivity() {
-
-
-
     @SuppressLint("CoroutineCreationDuringComposition")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +22,6 @@ class MainActivity : ComponentActivity() {
                 Navigation(navController = navController)
 
             }
-
 
         }
     }
